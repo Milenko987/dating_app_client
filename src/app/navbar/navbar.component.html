@@ -1,0 +1,24 @@
+<div class="navbar">
+    <h1 class="title">DATING APP</h1>
+    <nav *ngIf="(accountService.currentUser$ | async) as user">
+        <ul class="nav_links">
+            <li><a routerLink="/members" routerLinkActive="activeLink">Matches</a></li>
+            <li><a routerLink="/lists" routerLinkActive="activeLink">Lists</a></li>
+            <li><a routerLink="/messages" routerLinkActive="activeLink">Messages</a></li>
+            <li><a href="#">Welcome {{user}} </a>
+                <ul>
+                    <li><a href="">Edit Profile</a></li>
+                    <li><a (click)="logout()">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+
+    </nav>
+    <form class="inputs" #loginForm="ngForm" *ngIf="!(accountService.currentUser$ | async)">
+        <input name="username" [(ngModel)]="model.username" class="input" type="text" placeholder="Username">
+        <input name="password" [(ngModel)]="model.password" class="input" type="text" placeholder="Password">
+        <a href="" class="cta"><button (click)="login()">Login</button></a>
+    </form>
+
+
+</div>

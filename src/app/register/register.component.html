@@ -1,0 +1,12 @@
+<div class="form-container">
+    <h2>Sign up</h2>
+    <hr>
+    <form class="inputs" #registerForm="ngForm">
+        <input [(ngModel)]="model.username" class="input" type="text" name="username" placeholder="Username">
+        <input [(ngModel)]="model.password" class="input" type="password" name="password" placeholder="Password">
+        <div class="buttons">
+            <button (click)="register()" class="registerBtn">Register</button>
+            <button (click)="cancel()" class="cancelBtn">Cancel</button>
+        </div>
+    </form>
+</div>
