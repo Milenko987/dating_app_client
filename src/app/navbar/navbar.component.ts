@@ -35,10 +35,6 @@ export class NavbarComponent implements OnInit {
         this.router.navigateByUrl('/members');
         this.loggedIn = true;
       },
-      error: (err) => {
-        this.toaster.error(err.error);
-        console.log(err);
-      },
     });
   }
 

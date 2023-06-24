@@ -1,1 +1,49 @@
-<p>member-detail works!</p>
+<div *ngIf="member" class="container">
+    <div class="detail-card">
+        <div class="column card-style">
+            <figure>
+                <img src="{{member.photoUrl}}" alt="">
+            </figure>
+        </div>
+        <div class="card-text">
+            <strong>Location:</strong>
+            <p>{{member.city}},{{member.country}}</p>
+            <strong>Age:</strong>
+            <p>{{member.age}}</p>
+            <strong>Last active:</strong>
+            <p>{{member.lastActive}}</p>
+            <strong>Member since: </strong>
+            <p>{{member.create}}</p>
+        </div>
+    </div>
+    <div class="tabs-section">
+        <mat-tab-group fitInkBarToContent="true">
+
+            <mat-tab>
+                <div class="tab-content">
+                    <ng-template mat-tab-label>
+                        About {{member.knownAs}}
+                    </ng-template>
+                    <h4>Description</h4>
+                    <p>{{member.introduction}}</p>
+                    <h4>Looking For</h4>
+                    <p>{{member.lookingFor}}</p>
+                </div>
+
+            </mat-tab>
+            <mat-tab label="Interests">
+                <div class="tab-content">
+                    <h4>Interests: </h4>
+                    <p>{{member.interests}}</p>
+                </div>
+
+            </mat-tab>
+            <mat-tab label="Photos">
+                <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
+            </mat-tab>
+            <mat-tab label="Messages"></mat-tab>
+        </mat-tab-group>
+
+    </div>
+
+</div>

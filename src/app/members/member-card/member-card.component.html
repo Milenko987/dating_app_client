@@ -1,0 +1,15 @@
+<div class="card" *ngIf="member">
+    <div class="imgAndButtons">
+        <img [src]="member.photoUrl" style="width: 100%;" alt="">
+        <ul class="icon-buttons">
+            <button class="button" routerLink="/members/{{member.userName}}"><i class="fa fa-user"></i></button>
+            <button class="button"><i class="fa fa-heart"></i></button>
+            <button class="button"><i class="fa fa-envelope"></i></button>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h4><i class="fa fa-user"></i><b>{{member.knownAs}}</b></h4>
+        <p>{{member.city}}</p>
+    </div>
+</div>
