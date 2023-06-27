@@ -5,6 +5,10 @@
   background-color: orangered;
 }
 
+img {
+  max-height: 50px;
+}
+
 .title {
   margin-right: auto;
   font-size: 26px;

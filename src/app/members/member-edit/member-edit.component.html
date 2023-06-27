@@ -1,0 +1,69 @@
+<div *ngIf="member" class="container">
+    <div class="detail-card">
+
+        <div class="column card-style">
+            <figure>
+                <img src="{{member.photoUrl}}" alt="">
+            </figure>
+        </div>
+        <div class="card-text">
+            <strong>Location:</strong>
+            <p>{{member.city}},{{member.country}}</p>
+            <strong>Age:</strong>
+            <p>{{member.age}}</p>
+            <strong>Last active:</strong>
+            <p>{{member.lastActive}}</p>
+            <strong>Member since: </strong>
+            <p>{{member.create}}</p>
+        </div>
+        <button class="button-msg" form="editForm" [disabled]="!editForm.dirty">Save changes</button>
+    </div>
+    <div class="tabs-section">
+        <div class="info-box" *ngIf="editForm.dirty">
+            <b>
+                <p>Information:</p>
+            </b>
+            <p>You have made changes. Any unsaved changes will be lost</p>
+        </div>
+        <mat-tab-group fitInkBarToContent="true">
+
+            <mat-tab>
+                <div class="tab-content">
+                    <form name="editForm" id="editForm" #editForm="ngForm" (ngSubmit)="updateMember()">
+
+                        <ng-template mat-tab-label>
+                            About {{member.knownAs}}
+                        </ng-template>
+                        <h4>Description</h4>
+                        <textarea type="text" [(ngModel)]="member.introduction" name="introduction" rows="6"></textarea>
+                        <h4>Looking for</h4> <textarea type="text" [(ngModel)]="member.lookingFor" name="lookingFor"
+                            rows="6"></textarea>
+                        <h4>Interests</h4>
+                        <textarea type="text" [(ngModel)]="member.interests" name="interests" rows="6"></textarea>
+                        <h4>Location details:</h4>
+                        <div class="location-inputs">
+                            <label for="city">City:</label>
+                            <input type="text" [(ngModel)]="member.city" name="city">
+
+                        </div>
+
+                        <div class="location-inputs">
+                            <label for="city">Country:</label>
+                            <input type="text" [(ngModel)]="member.country" name="country">
+                        </div>
+                    </form>
+
+
+                </div>
+
+            </mat-tab>
+
+
+            <mat-tab label="Edit photos">
+                <app-photo-editor [member]="member"></app-photo-editor>
+            </mat-tab>
+        </mat-tab-group>
+
+    </div>
+
+</div>

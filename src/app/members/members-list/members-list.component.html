@@ -1,3 +1,3 @@
 <div class="container">
-    <app-member-card *ngFor="let member of memebersList" [member]="member"></app-member-card>
+    <app-member-card *ngFor="let member of memebersList$ | async" [member]="member"></app-member-card>
 </div>

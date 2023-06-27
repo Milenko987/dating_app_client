@@ -1,0 +1,109 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 30px;
+  width: 100vw;
+  height: 100vh;
+}
+.detail-card {
+  width: 30%;
+  padding: 30px;
+}
+.tab-content {
+  padding-top: 20px;
+}
+
+.ngx-gallery {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.tabs-section {
+  width: 70%;
+}
+P {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 16px;
+}
+
+H1 {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 100;
+  text-transform: uppercase;
+  font-size: 28px;
+}
+
+figure {
+  margin: 0px;
+}
+
+figure img {
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+figure img:hover {
+  opacity: 0.6;
+  transition: all 0.3s linear;
+}
+.column {
+  box-sizing: border-box;
+  flex: 1 100%;
+  justify-content: space-evenly;
+  margin: 20px;
+}
+.card-style {
+  border-radius: 12px;
+  border-image-slice: 1;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.4);
+  transition: all 0.25s linear;
+}
+.card-style:hover {
+  box-shadow: -1px 10px 29px 0px rgba(0, 0, 0, 0.8);
+}
+
+.card-text {
+  padding: 20px;
+}
+
+.button-msg {
+  background-color: green;
+  width: 100%;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.info-box {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  background-color: #87cefa;
+  color: blue;
+  padding: 50px 20px;
+  border-radius: 10px;
+}
+
+.info-box p {
+  font-size: 20px;
+}
+
+.tab-content textarea {
+  width: 100%;
+}
+
+.location-inputs {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.location-inputs input {
+  height: 50px;
+}
