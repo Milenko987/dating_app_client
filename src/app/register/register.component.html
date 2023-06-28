@@ -1,11 +1,71 @@
 <div class="form-container">
     <h2>Sign up</h2>
     <hr>
-    <form class="inputs" #registerForm="ngForm">
-        <input [(ngModel)]="model.username" class="input" type="text" name="username" placeholder="Username">
-        <input [(ngModel)]="model.password" class="input" type="password" name="password" placeholder="Password">
+    <form class="inputs" [formGroup]="registerForm">
+        <div>
+            <label style="margin-right: 10px;">I am a : </label>
+            <label style="margin-right: 20px;">
+                <input type="radio" name="" id="" value="male" formControlName="gender"> Male
+
+            </label>
+            <label>
+                <input type="radio" name="" id="" value="female" formControlName="gender"> Female
+
+            </label>
+        </div>
+        <div>
+            <input formControlName="username" class="input" type="text" placeholder="Username">
+            <div *ngIf="username.invalid && (username.dirty || username.touched)">
+                <p class="error" *ngIf="username.hasError('required')">Please enter your username</p>
+            </div>
+        </div>
+        <div>
+            <input formControlName="knownAs" class="input" type="text" placeholder="knownAs">
+            <div *ngIf="knownAs.invalid && (knownAs.dirty || knownAs.touched)">
+                <p class="error" *ngIf="knownAs.hasError('required')">Please enter your nickname</p>
+            </div>
+        </div>
+        <div>
+            <input formControlName="dateOfBirth" class="input" type="date" placeholder="dateOfBirth">
+            <div *ngIf="dateOfBirth.invalid && (dateOfBirth.dirty || dateOfBirth.touched)">
+                <p class="error" *ngIf="dateOfBirth.hasError('required')">Please enter your date of birth</p>
+            </div>
+        </div>
+        <div>
+            <input formControlName="city" class="input" type="text" placeholder="city">
+            <div *ngIf="city.invalid && (city.dirty || city.touched)">
+                <p class="error" *ngIf="city.hasError('required')">Please enter your city</p>
+            </div>
+        </div>
+        <div>
+            <input formControlName="country" class="input" type="text" placeholder="country">
+            <div *ngIf="country.invalid && (country.dirty || country.touched)">
+                <p class="error" *ngIf="country.hasError('required')">Please enter your country</p>
+            </div>
+        </div>
+        <div>
+            <input formControlName="password" class="input" type="password" placeholder="Password">
+            <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                <p class="error" *ngIf="password.hasError('required')">Please enter your password</p>
+                <p class="error" *ngIf="password.hasError('maxlength')">Your password must have max 8 charachters</p>
+                <p class="error" *ngIf="password.hasError('minlength')">Your password must have min 4 charachters</p>
+            </div>
+        </div>
+        <div>
+            <input formControlName="confirmPassword" class="input" type="password" placeholder="Confirm Password">
+            <div *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)">
+                <p class="error" *ngIf="confirmPassword.hasError('required')">Please enter your password confirmation
+                </p>
+                <p class="error" *ngIf="confirmPassword.hasError('notMatching')">Password and confirm password are not
+                    the same
+                </p>
+            </div>
+        </div>
+
+
+
         <div class="buttons">
-            <button (click)="register()" class="registerBtn">Register</button>
+            <button [disabled]="!registerForm.valid" (click)="register()" class="registerBtn">Register</button>
             <button (click)="cancel()" class="cancelBtn">Cancel</button>
         </div>
     </form>

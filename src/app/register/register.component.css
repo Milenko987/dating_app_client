@@ -3,6 +3,10 @@
   flex-direction: column;
 }
 
+.error {
+  color: red;
+}
+
 h2 {
   font-size: 40px;
 }
@@ -15,7 +19,7 @@ h2 {
   border-radius: 4px;
   box-sizing: border-box;
   margin-right: 20px;
-  width: 100%;
+  width: 300px;
   background-color: white;
 }
 
